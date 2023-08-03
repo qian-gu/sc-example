@@ -15,7 +15,7 @@ class FIFOReadIF : virtual public sc_interface {
 template<class T>
 class FIFOWriteIF : virtual public sc_interface {
   public:
-    virtual void Write(const T &data);
+    virtual void Write(const T &data) = 0;
     virtual unsigned GetNumFree() = 0;
 };
 

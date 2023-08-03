@@ -1,4 +1,5 @@
 #include "sink.h"
+#include "common.h"
 #include <vcml.h>
 
 Sink::Sink(sc_module_name name) : sc_module(name) {
@@ -8,11 +9,9 @@ Sink::Sink(sc_module_name name) : sc_module(name) {
 void Sink::ReadThread() {
   int i = 0;
   while(true) {
-    wait(1, SC_NS);
-    // if (read_port->GetNumAvailable() != 0) {
-    if (read_port->num_available() != 0) {
-      // read_port->Read(rdata);
-      read_port->read(sentence[i]);
+    wait(1*kClockPeriod, SC_NS);
+    if (read_port->GetNumAvailable() != 0) {
+      read_port->Read(sentence[i]);
       vcml::log.info("Sink read data: %c", sentence[i]);
       i++;
     }
@@ -20,6 +19,5 @@ void Sink::ReadThread() {
 }
 
 void Sink::ShowData() {
-  //const char *data = sentence;
   vcml::log.info("Sink receive data is: %s", sentence);
 }

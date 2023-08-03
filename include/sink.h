@@ -3,6 +3,7 @@
 
 #include"fifo_ifs.h"
 #include<systemc>
+
 using namespace sc_core;
 
 // Submodule forward declarations.
@@ -10,8 +11,7 @@ using namespace sc_core;
 class Sink : public sc_module {
   public:
     // Port declarations.
-    //sc_port<FIFOReadIF<uint8_t> > read_port;
-    sc_port<sc_fifo_in_if<uint8_t> > read_port;
+    sc_port<FIFOReadIF<uint8_t> > read_port;
 
     SC_HAS_PROCESS(Sink);
 

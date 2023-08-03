@@ -11,8 +11,7 @@ using namespace sc_core;
 class Source : public sc_module {
   public:
     // Port declarations.
-    // sc_port<FIFOWriteIF<uint8_t> > write_port;
-    sc_port<sc_fifo_out_if<uint8_t> > write_port;
+    sc_port<FIFOWriteIF<uint8_t> > write_port;
 
     SC_HAS_PROCESS(Source);
 
