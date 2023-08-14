@@ -1,10 +1,20 @@
-# sc-source-fifo-sink
+# SystemC Example
 
-SystemC example project.
+## Diagram
 
 ```text
-Source <-> FIFO <-> Sink
+
+|------------|     |----------|      |----------|
+|            |     |          |      |          |
+|   Source   | <-> |   FIFO   |  <-> |   Sink   |
+|            |     |          |      |          |
+|------------|     |----------|      |----------|
+
 ```
+
+## Dependencies
+
++ [Virtual Components Modeling Library](https://github.com/machineware-gmbh/vcml)
 
 ## Build
 
@@ -22,14 +32,9 @@ make
 
 | syntax             | examples                    |
 | ------------------ | --------------------------- |
-| sc_module * thread | `Source`, `Sink`            |
+| sc_module          | `Source`, `Sink`            |
 | SC_THREAD          | `WriteThread`, `ReadThread` | 
 | sc_interface       | `FIFOReadIF`, `FIFOWriteIF` |
-| sc_prim_channel    | `class FIFO`                |
+| sc_prim_channel    | `FIFO`                      |
 
 * modules and channels are connected up via sc_port
-
-## TODO
-
-- [ ] implement custom FIFO channel, refer to SystemC: From the ground up.
-- [ ] integrate log function in systemc library on accelare.com
